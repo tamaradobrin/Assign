@@ -9,7 +9,7 @@
 
 <h:body>
 
-    <p:spinner/>
+    <p:inputText/>
 
 </h:body>
 </html>

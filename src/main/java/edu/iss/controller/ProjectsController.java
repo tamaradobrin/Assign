@@ -12,6 +12,6 @@ public class ProjectsController extends HttpServlet {
 
   @Override
   protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-    req.getRequestDispatcher("/pages/projects.jsp").forward(req, resp);
+    req.getRequestDispatcher("/pages/projects.jsf").forward(req, resp);
   }
 }
