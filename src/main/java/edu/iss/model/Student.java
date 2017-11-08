@@ -4,40 +4,50 @@ import java.util.List;
 
 public class Student {
 
-    private Integer id;
-    private String name;
-    private Integer projectId;
-    private List<Integer> preferences;
+  private Integer id;
+  private String name;
+  private Integer projectId;
+  private List<Project> preferences;
 
-    public Integer getId() {
-        return id;
-    }
+  public Student() {
+  }
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
+  public Student(Integer id, String name, Integer projectId, List<Project> preferences) {
+    this.id = id;
+    this.name = name;
+    this.projectId = projectId;
+    this.preferences = preferences;
+  }
 
-    public String getName() {
-        return name;
-    }
+  public Integer getId() {
+    return id;
+  }
 
-    public void setName(String name) {
-        this.name = name;
-    }
+  public void setId(Integer id) {
+    this.id = id;
+  }
 
-    public Integer getProjectId() {
-        return projectId;
-    }
+  public String getName() {
+    return name;
+  }
 
-    public void setProjectId(Integer projectId) {
-        this.projectId = projectId;
-    }
+  public void setName(String name) {
+    this.name = name;
+  }
 
-    public List<Integer> getPreferences() {
-        return preferences;
-    }
+  public Integer getProjectId() {
+    return projectId;
+  }
 
-    public void setPreferences(List<Integer> preferences) {
-        this.preferences = preferences;
-    }
+  public void setProjectId(Integer projectId) {
+    this.projectId = projectId;
+  }
+
+  public List<Project> getPreferences() {
+    return preferences;
+  }
+
+  public void setPreferences(List<Project> preferences) {
+    this.preferences = preferences;
+  }
 }

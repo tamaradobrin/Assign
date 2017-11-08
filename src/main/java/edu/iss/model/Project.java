@@ -4,49 +4,60 @@ import java.util.List;
 
 public class Project {
 
-    private Integer id;
-    private String name;
-    private String description;
-    private Integer quota;
-    private List<Integer> requiredSkills;
+  private Integer id;
+  private String name;
+  private String description;
+  private Integer quota;
+  private List<Skill> requiredSkills;
 
-    public Integer getId() {
-        return id;
-    }
+  public Project() {
+  }
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
+  public Project(Integer id, String name, String description, Integer quota, List<Skill> requiredSkills) {
+    this.id = id;
+    this.name = name;
+    this.description = description;
+    this.quota = quota;
+    this.requiredSkills = requiredSkills;
+  }
 
-    public String getName() {
-        return name;
-    }
+  public Integer getId() {
+    return id;
+  }
 
-    public void setName(String name) {
-        this.name = name;
-    }
+  public void setId(Integer id) {
+    this.id = id;
+  }
 
-    public String getDescription() {
-        return description;
-    }
+  public String getName() {
+    return name;
+  }
 
-    public void setDescription(String description) {
-        this.description = description;
-    }
+  public void setName(String name) {
+    this.name = name;
+  }
 
-    public Integer getQuota() {
-        return quota;
-    }
+  public String getDescription() {
+    return description;
+  }
 
-    public void setQuota(Integer quota) {
-        this.quota = quota;
-    }
+  public void setDescription(String description) {
+    this.description = description;
+  }
 
-    public List<Integer> getRequiredSkills() {
-        return requiredSkills;
-    }
+  public Integer getQuota() {
+    return quota;
+  }
 
-    public void setRequiredSkills(List<Integer> requiredSkills) {
-        this.requiredSkills = requiredSkills;
-    }
+  public void setQuota(Integer quota) {
+    this.quota = quota;
+  }
+
+  public List<Skill> getRequiredSkills() {
+    return requiredSkills;
+  }
+
+  public void setRequiredSkills(List<Skill> requiredSkills) {
+    this.requiredSkills = requiredSkills;
+  }
 }

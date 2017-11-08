@@ -2,22 +2,30 @@ package edu.iss.model;
 
 public class Skill {
 
-    private Integer id;
-    private String name;
+  private Integer id;
+  private String name;
 
-    public Integer getId() {
-        return id;
-    }
+  public Skill() {
+  }
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
+  public Skill(Integer id, String name) {
+    this.id = id;
+    this.name = name;
+  }
 
-    public String getName() {
-        return name;
-    }
+  public Integer getId() {
+    return id;
+  }
 
-    public void setName(String name) {
-        this.name = name;
-    }
+  public void setId(Integer id) {
+    this.id = id;
+  }
+
+  public String getName() {
+    return name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
 }
