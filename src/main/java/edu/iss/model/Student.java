@@ -6,16 +6,18 @@ public class Student {
 
   private Integer id;
   private String name;
-  private Integer projectId;
+  private Project project;
+  private List<Skill> skills;
   private List<Project> preferences;
 
   public Student() {
   }
 
-  public Student(Integer id, String name, Integer projectId, List<Project> preferences) {
+  public Student(Integer id, String name, Project project, List<Skill> skills, List<Project> preferences) {
     this.id = id;
     this.name = name;
-    this.projectId = projectId;
+    this.project = project;
+    this.skills = skills;
     this.preferences = preferences;
   }
 
@@ -35,19 +37,27 @@ public class Student {
     this.name = name;
   }
 
-  public Integer getProjectId() {
-    return projectId;
-  }
-
-  public void setProjectId(Integer projectId) {
-    this.projectId = projectId;
-  }
-
   public List<Project> getPreferences() {
     return preferences;
   }
 
   public void setPreferences(List<Project> preferences) {
     this.preferences = preferences;
+  }
+
+  public Project getProject() {
+    return project;
+  }
+
+  public void setProject(Project project) {
+    this.project = project;
+  }
+
+  public List<Skill> getSkills() {
+    return skills;
+  }
+
+  public void setSkills(List<Skill> skills) {
+    this.skills = skills;
   }
 }
