@@ -35,13 +35,7 @@ public class ProjectRepository extends AbstractRepository {
       Statement st = connection.createStatement();
       ResultSet rs = st.executeQuery("SELECT * FROM assign.project ORDER BY id");
       while (rs.next()) {
-        Integer id = rs.getInt("id");
-        String name = rs.getString("name");
-        String description = rs.getString("description");
-        Integer quota = rs.getInt("quota");
-        Array a = rs.getArray("requiredskills");
-        List<Skill> requiredSkills = skillRepository.getSkills(a);
-        projects.add(new Project(id, name, description, quota, requiredSkills));
+        projects.add(getProjectFromRs(rs));
       }
       rs.close();
       st.close();
@@ -59,13 +53,7 @@ public class ProjectRepository extends AbstractRepository {
         st.setInt(1, projectId);
         ResultSet rs = st.executeQuery();
         rs.next();
-        Integer id = rs.getInt("id");
-        String name = rs.getString("name");
-        String description = rs.getString("description");
-        Integer quota = rs.getInt("quota");
-        Array a = rs.getArray("requiredskills");
-        List<Skill> requiredSkills = skillRepository.getSkills(a);
-        project = new Project(id, name, description, quota, requiredSkills);
+        project = getProjectFromRs(rs);
         rs.close();
         st.close();
       } catch (SQLException ex) {
@@ -89,6 +77,16 @@ public class ProjectRepository extends AbstractRepository {
       }
     }
     return projects;
+  }
+
+  private Project getProjectFromRs(ResultSet rs) throws SQLException {
+    Integer id = rs.getInt("id");
+    String name = rs.getString("name");
+    String description = rs.getString("description");
+    Integer quota = rs.getInt("quota");
+    Array a = rs.getArray("requiredskills");
+    List<Skill> requiredSkills = skillRepository.getSkills(a);
+    return new Project(id, name, description, quota, requiredSkills);
   }
 
 }

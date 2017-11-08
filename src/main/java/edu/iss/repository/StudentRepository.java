@@ -29,15 +29,7 @@ public class StudentRepository extends AbstractRepository {
       Statement st = connection.createStatement();
       ResultSet rs = st.executeQuery("SELECT * FROM assign.student ORDER BY id");
       while (rs.next()) {
-        Integer id = rs.getInt("id");
-        String name = rs.getString("name");
-        Integer projectId = rs.getInt("projectid");
-        Project project = projectRepository.findById(projectId);
-        Array a = rs.getArray("preferences");
-        List<Project> preferedProjects = projectRepository.getProjects(a);
-        Array b = rs.getArray("skills");
-        List<Skill> skills = skillRepository.getSkills(b);
-        students.add(new Student(id, name, project, skills, preferedProjects));
+        students.add(getStudentFromRs(rs));
       }
       rs.close();
       st.close();
@@ -54,20 +46,24 @@ public class StudentRepository extends AbstractRepository {
       st.setInt(1, studentId);
       ResultSet rs = st.executeQuery();
       rs.next();
-      Integer id = rs.getInt("id");
-      String name = rs.getString("name");
-      Integer projectId = rs.getInt("projectid");
-      Project project = projectRepository.findById(projectId);
-      Array a = rs.getArray("preferences");
-      List<Project> preferedProjects = projectRepository.getProjects(a);
-      Array b = rs.getArray("skillIds");
-      List<Skill> skills = skillRepository.getSkills(b);
-      student = new Student(id, name, project, skills, preferedProjects);
+      student = getStudentFromRs(rs);
       rs.close();
       st.close();
     } catch (SQLException ex) {
       ex.printStackTrace();
     }
     return student;
+  }
+
+  private Student getStudentFromRs(ResultSet rs) throws SQLException {
+    Integer id = rs.getInt("id");
+    String name = rs.getString("name");
+    Integer projectId = rs.getInt("projectid");
+    Project project = projectRepository.findById(projectId);
+    Array a = rs.getArray("preferences");
+    List<Project> preferedProjects = projectRepository.getProjects(a);
+    Array b = rs.getArray("skillIds");
+    List<Skill> skills = skillRepository.getSkills(b);
+    return new Student(id, name, project, skills, preferedProjects);
   }
 }

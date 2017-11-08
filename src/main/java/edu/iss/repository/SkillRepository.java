@@ -25,9 +25,7 @@ public class SkillRepository extends AbstractRepository {
       Statement st = connection.createStatement();
       ResultSet rs = st.executeQuery("SELECT * FROM assign.skill");
       while (rs.next()) {
-        Integer id = rs.getInt("id");
-        String name = rs.getString("name");
-        skills.add(new Skill(id, name));
+        skills.add(getSkillFromRs(rs));
       }
       rs.close();
       st.close();
@@ -45,9 +43,7 @@ public class SkillRepository extends AbstractRepository {
         st.setInt(1, skillId);
         ResultSet rs = st.executeQuery();
         rs.next();
-        Integer id = rs.getInt("id");
-        String name = rs.getString("name");
-        skill = new Skill(id, name);
+        skill = getSkillFromRs(rs);
         rs.close();
         st.close();
       } catch (SQLException ex) {
@@ -71,6 +67,12 @@ public class SkillRepository extends AbstractRepository {
       }
     }
     return skills;
+  }
+
+  private Skill getSkillFromRs(ResultSet rs) throws SQLException {
+    Integer id = rs.getInt("id");
+    String name = rs.getString("name");
+    return new Skill(id, name);
   }
 
 }
