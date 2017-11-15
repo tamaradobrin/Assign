@@ -1,0 +1,21 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+<h2><p:outputLabel value="Register Project"/></h2>
+<h:form>
+    <h:panelGrid columns="4" cellpadding="5">
+        <h:outputLabel for="name" value="Project ID:" style="font-weight:bold"/>
+        <p:inputText id="name" value="#{projectView.name}"/>
+        <p:commandButton ajax="false" value="Submit" icon="ui-icon-check" action="#{projectView.save}"/>
+    </h:panelGrid>
+</h:form>
+
+<h:outputLabel value="Project ID:"/>
+<p:inputText/>
+<h:outputLabel value="Description:"/>
+<p:inputTextarea/>
+</html>
