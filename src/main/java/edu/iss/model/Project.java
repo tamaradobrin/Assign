@@ -1,9 +1,7 @@
 package edu.iss.model;
 
-import javax.faces.bean.ManagedBean;
 import java.util.List;
 
-@ManagedBean
 public class Project {
 
   private Integer id;
