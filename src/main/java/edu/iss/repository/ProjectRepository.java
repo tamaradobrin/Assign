@@ -84,11 +84,12 @@ public class ProjectRepository extends AbstractRepository {
         try {
             PreparedStatement st = connection.prepareStatement("INSERT INTO assign.project" +
                     "(name, description, quota, requiredskills) " +
-                    "VALUES (?,?,?,?);");
+                    "VALUES (?,?,?,?)");
             st.setString(1, project.getName());
             st.setString(2, project.getDescription());
             st.setInt(3, project.getQuota());
             ResultSet rs = st.executeQuery();
+            rs.next();
             rs.close();
             st.close();
         } catch (SQLException ex) {
