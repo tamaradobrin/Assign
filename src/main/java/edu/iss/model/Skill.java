@@ -1,7 +1,15 @@
 package edu.iss.model;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "skill")
 public class Skill {
 
+  @Id
+  @SequenceGenerator(name = "skill_id_seq",
+          sequenceName = "skill_id_seq", allocationSize = 1)
+  @GeneratedValue(generator = "skill_id_seq")
   private Integer id;
   private String name;
 

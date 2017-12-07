@@ -1,13 +1,29 @@
 package edu.iss.model;
 
+import javax.persistence.*;
 import java.util.List;
 
+@Entity
+@Table(name = "student")
 public class Student {
 
+  @Id
+  @SequenceGenerator(name = "student_id_seq",
+          sequenceName = "student_id_seq", allocationSize = 1)
+  @GeneratedValue(generator = "student_id_seq")
   private Integer id;
   private String name;
+  @OneToOne
   private Project project;
+  @JoinTable(name = "studentskill", joinColumns = {
+                  @JoinColumn(name = "studentid", referencedColumnName = "id")},
+          inverseJoinColumns = {@JoinColumn(name = "skillid", referencedColumnName = "id")})
+  @ManyToMany
   private List<Skill> skills;
+    @JoinTable(name = "studentproject", joinColumns = {
+            @JoinColumn(name = "studentid", referencedColumnName = "id")},
+            inverseJoinColumns = {@JoinColumn(name = "projectid", referencedColumnName = "id")})
+  @ManyToMany
   private List<Project> preferences;
 
   public Student() {
