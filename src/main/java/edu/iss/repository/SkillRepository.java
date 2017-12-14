@@ -1,6 +1,6 @@
 package edu.iss.repository;
 
-import edu.iss.model.Skill;
+import edu.iss.entities.Skill;
 import java.sql.Array;
 import java.sql.Connection;
 import java.sql.PreparedStatement;

@@ -1,9 +1,10 @@
-package edu.iss.model;
+package edu.iss.entities;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
-@Table(name = "skill")
+@Table(name = "skill", schema = "assign")
 public class Skill {
 
   @Id

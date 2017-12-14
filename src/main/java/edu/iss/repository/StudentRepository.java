@@ -1,8 +1,8 @@
 package edu.iss.repository;
 
-import edu.iss.model.Project;
-import edu.iss.model.Skill;
-import edu.iss.model.Student;
+import edu.iss.entities.Project;
+import edu.iss.entities.Skill;
+import edu.iss.entities.Student;
 import java.sql.Array;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -64,6 +64,6 @@ public class StudentRepository extends AbstractRepository {
     List<Project> preferedProjects = projectRepository.getProjects(a);
     Array b = rs.getArray("skillIds");
     List<Skill> skills = skillRepository.getSkills(b);
-    return new Student(id, name, project, skills, preferedProjects);
+    return new Student();
   }
 }

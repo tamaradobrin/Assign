@@ -1,31 +1,35 @@
 package edu.iss.controller;
 
-import edu.iss.model.Skill;
+import com.sun.faces.action.RequestMapping;
+import edu.iss.entities.Project;
+import edu.iss.entities.Skill;
+import edu.iss.repository.ProjectJpaRepository;
 import edu.iss.repository.SkillJpaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.servlet.ModelAndView;
 
-import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
+import java.util.List;
 
-@WebServlet(name = "SkillController", urlPatterns = {"/skills/register"})
-public class SkillController extends HttpServlet {
+@Controller
+@RequestMapping("/skill")
+public class SkillController{
 
     @Autowired
-    SkillJpaRepository skillJpaRepository;
+    private SkillJpaRepository skillJpaRepository;
 
-    @Override
-    public void init() throws ServletException {
-        skillJpaRepository = new SkillJpaRepository();
-    }
+    @Autowired
+    private ProjectJpaRepository projectJpaRepository;
 
-    @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        Skill s = new Skill();
-        s.setName("Miscellaneous skill");
-        skillJpaRepository.create(s);
+    @GetMapping
+    public String getSkills(Model model){
+        List<Skill> skills = skillJpaRepository.getAllSkills();
+        model.addAttribute("skillList", skills);
+
+        List<Project> projects = projectJpaRepository.getAllProjects();
+
+        return "skills";
     }
 }

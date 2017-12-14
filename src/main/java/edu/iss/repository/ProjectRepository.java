@@ -1,7 +1,7 @@
 package edu.iss.repository;
 
-import edu.iss.model.Project;
-import edu.iss.model.Skill;
+import edu.iss.entities.Project;
+import edu.iss.entities.Skill;
 
 import java.sql.Array;
 import java.sql.Connection;
@@ -104,7 +104,7 @@ public class ProjectRepository extends AbstractRepository {
         Integer quota = rs.getInt("quota");
         Array a = rs.getArray("requiredskills");
         List<Skill> requiredSkills = skillRepository.getSkills(a);
-        return new Project(id, name, description, quota, requiredSkills);
+        return new Project();
     }
 
 }

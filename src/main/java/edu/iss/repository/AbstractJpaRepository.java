@@ -1,17 +1,30 @@
 package edu.iss.repository;
 
+import org.springframework.transaction.annotation.Transactional;
+
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 public class AbstractJpaRepository<T> {
 
-    @PersistenceContext(unitName = "jpa")
-    public EntityManager em;
+    @PersistenceContext(unitName = "assignPU")
+    EntityManager em;
 
+    @Transactional
     public void create(T t) {
-        em.getTransaction().begin();
         em.persist(t);
-        em.getTransaction().commit();
+        em.close();
+    }
+
+    @Transactional
+    public void update(T t) {
+        em.merge(t);
+        em.close();
+    }
+
+    @Transactional
+    public void delete(T t) {
+        em.remove(t);
         em.close();
     }
 }

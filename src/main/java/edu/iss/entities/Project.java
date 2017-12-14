@@ -1,4 +1,4 @@
-package edu.iss.model;
+package edu.iss.entities;
 
 import javax.persistence.*;
 import java.util.List;
@@ -15,21 +15,17 @@ public class Project {
     private String name;
     private String description;
     private Integer quota;
-    @JoinTable(name = "projectskill", joinColumns = {
-            @JoinColumn(name = "projectid", referencedColumnName = "id")},
-            inverseJoinColumns = {@JoinColumn(name = "skillid", referencedColumnName = "id")})
-    @ManyToMany
-    private List<Skill> requiredSkills;
+    @OneToMany(mappedBy = "project", fetch = FetchType.EAGER)
+    private List<Student> students;
 
     public Project() {
     }
 
-    public Project(Integer id, String name, String description, Integer quota, List<Skill> requiredSkills) {
+    public Project(Integer id, String name, String description, Integer quota) {
         this.id = id;
         this.name = name;
         this.description = description;
         this.quota = quota;
-        this.requiredSkills = requiredSkills;
     }
 
     public Integer getId() {
@@ -64,11 +60,11 @@ public class Project {
         this.quota = quota;
     }
 
-    public List<Skill> getRequiredSkills() {
-        return requiredSkills;
+    public List<Student> getStudents() {
+        return students;
     }
 
-    public void setRequiredSkills(List<Skill> requiredSkills) {
-        this.requiredSkills = requiredSkills;
+    public void setStudents(List<Student> students) {
+        this.students = students;
     }
 }

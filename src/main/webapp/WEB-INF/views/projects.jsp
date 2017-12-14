@@ -2,8 +2,8 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" isELIgnored="false" %>
 <html>
 <head>
-    <link rel="stylesheet" href="../resources/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../resources/css/custom.css">
+    <link rel="stylesheet" href="../../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../css/custom.css">
     <title>Projects</title>
 </head>
 <body>
@@ -16,7 +16,7 @@
         <th>Project Name</th>
         <th>Description</th>
         <th>Quota</th>
-        <th>Skills</th>
+        <th>Students</th>
         </thead>
         <tbody>
         <c:forEach items="${projects}" var="project">
@@ -25,14 +25,19 @@
                 <td>${project.description}</td>
                 <td>${project.quota}</td>
                 <td>
-                    <c:forEach items="${project.requiredSkills}" var="skill">
-                        ${skill.name} <br>
+                    <c:forEach items="${project.students}" var="student">
+                        ${student.name} <br>
                     </c:forEach>
                 </td>
             </tr>
         </c:forEach>
         </tbody>
     </table>
+    <div>
+        <label for="name"></label>
+        <input type="text" id="name">
+
+    </div>
 </div>
 </body>
 </html>

@@ -1,8 +1,8 @@
 package edu.iss.repository;
 
-import edu.iss.model.Project;
-import edu.iss.model.Skill;
-import edu.iss.model.Student;
+import edu.iss.entities.Project;
+import edu.iss.entities.Skill;
+import edu.iss.entities.Student;
 import java.sql.*;
 import java.util.List;
 

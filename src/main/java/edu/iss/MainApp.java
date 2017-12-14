@@ -1,6 +1,6 @@
 package edu.iss;
 
-import edu.iss.model.Project;
+import edu.iss.entities.Project;
 import edu.iss.repository.ProjectJpaRepository;
 import edu.iss.repository.SkillJpaRepository;
 import org.springframework.beans.factory.annotation.Autowired;

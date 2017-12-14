@@ -1,6 +1,6 @@
 package edu.iss.controller;
 
-import edu.iss.model.Project;
+import edu.iss.entities.Project;
 import edu.iss.repository.ProjectRepository;
 
 import javax.servlet.ServletException;
