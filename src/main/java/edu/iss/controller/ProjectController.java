@@ -26,7 +26,7 @@ public class ProjectController {
     public String getProjects(Model model) {
         List<Project> projects = projectJpaRepository.getAllProjects();
         model.addAttribute("projects", projects);
-        /*Project newProject = new Project();
+        Project newProject = new Project();
         newProject.setName("project532");
         newProject.setDescription("descn324");
         newProject.setQuota(5);
@@ -34,9 +34,9 @@ public class ProjectController {
         Student newStudent = new Student();
         newStudent.setName("studentName542");
         newStudent.setProject(newProject);
-        studentJpaRepository.create(newStudent);*/
-        Project project = projectJpaRepository.findById(2);
-        projectJpaRepository.delete(project);
+        studentJpaRepository.create(newStudent);
+        //Project project = projectJpaRepository.findById(2);
+        //projectJpaRepository.delete(project);
         return "projects";
     }
 }

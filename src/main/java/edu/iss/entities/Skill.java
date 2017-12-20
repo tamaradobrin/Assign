@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
-@Table(name = "skill", schema = "assign")
+@Table(name = "skill")
 public class Skill {
 
   @Id
