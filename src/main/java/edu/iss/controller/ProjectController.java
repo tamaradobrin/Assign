@@ -27,12 +27,12 @@ public class ProjectController {
         List<Project> projects = projectJpaRepository.getAllProjects();
         model.addAttribute("projects", projects);
         Project newProject = new Project();
-        newProject.setName("project532");
-        newProject.setDescription("descn324");
-        newProject.setQuota(5);
+        newProject.setName("project533");
+        newProject.setDescription("descn323");
+        newProject.setQuota(23);
         projectJpaRepository.create(newProject);
         Student newStudent = new Student();
-        newStudent.setName("studentName542");
+        newStudent.setName("studentName53");
         newStudent.setProject(newProject);
         studentJpaRepository.create(newStudent);
         //Project project = projectJpaRepository.findById(2);
