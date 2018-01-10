@@ -2,7 +2,6 @@ package edu.iss.controller;
 
 import edu.iss.entities.Document;
 import java.io.IOException;
-import javax.print.Doc;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,9 +17,7 @@ public class UploadDocumentController {
   @GetMapping
   public String showUploadPage(Model model) {
     Document doc = new Document();
-    doc.setContent(new byte[10]);
     model.addAttribute("document", doc);
-    model.addAttribute("content", new byte[10]);
     return "uploadDocument";
   }
 

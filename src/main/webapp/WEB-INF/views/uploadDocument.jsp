@@ -15,7 +15,7 @@
     <form:form action="/upload" method="post" modelAttribute="document" enctype="multipart/form-data">
         <div class="form-group">
             <form:label path="content">Upload a document: </form:label>
-            <form:input type="file" path="content"/>
+            <form:input class="form-control-file grey" type="file" path="content"/>
         </div>
         <button type="submit" class="btn btn-primary">Upload</button>
     </form:form>
