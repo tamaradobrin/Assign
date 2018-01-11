@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.view.RedirectView;
 
 import java.util.List;
 
@@ -29,8 +30,8 @@ public class RegisterUserController {
     }
 
     @PostMapping
-    public String registerUser(@ModelAttribute User user){
+    public RedirectView registerUser(@ModelAttribute User user){
         userRepository.create(user);
-        return "registerUser";
+        return new RedirectView("/register");
     }
 }

@@ -27,4 +27,9 @@ public class AbstractJpaRepository<T> {
         em.remove(t);
         em.close();
     }
+
+    public EntityManager getPersistenceContext()
+    {
+        return em;
+    }
 }

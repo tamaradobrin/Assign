@@ -10,7 +10,7 @@ import org.springframework.web.servlet.view.UrlBasedViewResolver;
 
 @Configuration
 @EnableWebMvc
-@ComponentScan("edu.iss.controller")
+@ComponentScan("edu.iss")
 public class WebAppConfig {
 
     @Bean
