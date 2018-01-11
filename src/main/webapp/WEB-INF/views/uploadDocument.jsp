@@ -12,7 +12,7 @@
     <div class="page-header">
         <h1 id="pageHeader">Upload Document</h1>
     </div>
-    <form:form action="/upload" method="post" modelAttribute="document" enctype="multipart/form-data">
+    <form:form action="/upload" method="post" enctype="multipart/form-data" modelAttribute="document">
         <div class="form-group">
             <form:label path="content">Upload a document: </form:label>
             <form:input class="form-control-file grey" type="file" path="content"/>
